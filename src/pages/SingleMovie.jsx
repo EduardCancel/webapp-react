@@ -99,6 +99,7 @@ export default function SingleMovie() {
                                 value={formData.name}
                                 onChange={handleInputChange}
                                 placeholder="Anonymous"
+                                required
                             />
                         </div>
                         <div className="mb-3">
@@ -113,6 +114,7 @@ export default function SingleMovie() {
                                 min={1}
                                 max={5}
                                 placeholder="Rate from 1 to 5"
+                                required
                             />
                         </div>
                         <div className="mb-3">
@@ -125,6 +127,7 @@ export default function SingleMovie() {
                                 onChange={handleInputChange}
                                 rows="3"
                                 placeholder="Write your review here..."
+                                required
                             ></textarea>
                         </div>
                         <button type="submit" className="btn btn-dark">Submit Review</button>
