@@ -34,7 +34,7 @@ export default function HomePage() {
                                                 src={`http://localhost:3000/image/${movie.image}`}
                                                 alt={movie.title}
                                                 className="card-img-top"
-                                                style={{ height: '250px', objectFit: 'cover' }}
+                                                style={{ height: '300px', objectFit: 'cover' }}
                                             />
                                             <div className="card-body p-2">
                                                 <h5 className="card-title mb-2">{movie.title}</h5>
