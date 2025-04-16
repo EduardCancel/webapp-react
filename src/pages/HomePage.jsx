@@ -11,36 +11,45 @@ export default function HomePage() {
     }, []);
 
     return (
-        <div>
-            <h1>Home Page</h1>
-            <p>Welcome to the Movie App!</p>
+        <>
+            <div className="p-3 mb-3 bg-light rounded-3">
+                <div className="container-fluid py-3">
+                    <h1 className="h4 fw-bold">Movie Reviews</h1>
+                    <p className="col-md-10 fs-6">
+                        Welcome to the Movie Reviews App! Here, you can find reviews and ratings for your favorite movies. Explore our collection and discover new films to watch.
+                        Whether you're a fan of action, drama, comedy, or any other genre, we have something for everyone. Join us in celebrating the world of cinema and share your thoughts on the movies you love!
+                    </p>
+                </div>
+            </div>
 
-            <h2>Movies</h2>
-
-            {movies.length > 0 ? (
-                <section className="movies">
-                    <div className="container">
-
-                        <div className=" row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-4">
-                            {
-                                movies.map(movie => (
+            <div className="container">
+                {movies.length > 0 ? (
+                    <section className="movies">
+                        <div className="container">
+                            <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                                {movies.map(movie => (
                                     <div key={movie.id} className="col">
-                                        <div className="card" style={{ width: '18rem' }}>
-                                            <img src={`http://localhost:3000/image/${movie.image}`} alt="" className="card-img-top" />
-                                            <div className="card-body">
-                                                <h3>{movie.title}</h3>
-                                                <p>{movie.abstract}</p>
+                                        <div className="card h-100 shadow-sm" style={{ maxWidth: '100%', fontSize: '0.9rem' }}>
+                                            <img
+                                                src={`http://localhost:3000/image/${movie.image}`}
+                                                alt={movie.title}
+                                                className="card-img-top"
+                                                style={{ height: '250px', objectFit: 'cover' }}
+                                            />
+                                            <div className="card-body p-2">
+                                                <h5 className="card-title mb-2">{movie.title}</h5>
+                                                <p className="card-text">{movie.abstract}</p>
                                             </div>
                                         </div>
                                     </div>
-                                ))
-                            }
+                                ))}
+                            </div>
                         </div>
-                    </div>
-                </section>
-            ) : (
-                <p>No movies available.</p>
-            )}
-        </div>
+                    </section>
+                ) : (
+                    <p>No movies available.</p>
+                )}
+            </div>
+        </>
     );
 }
