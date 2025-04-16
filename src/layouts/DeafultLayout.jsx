@@ -1,0 +1,12 @@
+import { Outlet } from "react-router-dom"
+
+export default function DefaultLayout() {
+    return (
+        <>
+            <header>Header</header>
+            < Outlet />
+            <footer>Footer</footer>
+
+        </>
+    )
+}
