@@ -56,7 +56,7 @@ export default function SingleMovie() {
     return (
         <>
             {/* Jumbotron */}
-            <div className="p-5 mb-4 bg-light rounded-3">
+            <div className="p-5 mb-4 bg-light">
                 <div className="container-fluid py-5">
                     <div className="row">
                         <div className="col-8">
@@ -68,14 +68,14 @@ export default function SingleMovie() {
                                 <img
                                     src={`http://localhost:3000/image/${movie.image}`}
                                     alt={movie.title}
-                                    className="img-fluid rounded-start"
+                                    className="img-fluid"
                                     style={{ maxWidth: '100%', height: '200px' }}
                                 />
                             ) : (
                                 <img
                                     src="https://placehold.co/600x400"
                                     alt="Placeholder"
-                                    className="img-fluid rounded-start"
+                                    className="img-fluid"
                                     style={{ maxWidth: '100%', height: '200px' }}
                                 />
                             )}
@@ -86,7 +86,7 @@ export default function SingleMovie() {
 
             {/* Review Form */}
             <div className="container">
-                <div className="add-review">
+                <div className="add-review bg-light p-4 shadow-sm">
                     <h3 className="mb-3">Add your Review</h3>
                     <form onSubmit={handleSubmit}>
                         <div className="mb-3">
@@ -112,7 +112,7 @@ export default function SingleMovie() {
                                 onChange={handleInputChange}
                                 min={1}
                                 max={5}
-                                placeholder="Write your vote here..."
+                                placeholder="Rate from 1 to 5"
                             />
                         </div>
                         <div className="mb-3">
@@ -127,7 +127,7 @@ export default function SingleMovie() {
                                 placeholder="Write your review here..."
                             ></textarea>
                         </div>
-                        <button type="submit" className="btn btn-primary">Submit Review</button>
+                        <button type="submit" className="btn btn-dark">Submit Review</button>
                     </form>
                 </div>
 
@@ -141,7 +141,7 @@ export default function SingleMovie() {
                         ))}
                     </div>
                 ) : (
-                    <p>No reviews found</p>
+                    <p className="text-center mt-4">No reviews found</p>
                 )}
             </div>
         </>
