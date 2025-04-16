@@ -20,22 +20,21 @@ export default function HomePage() {
             {movies.length > 0 ? (
                 <section className="movies">
                     <div className="container">
-                        <div className="row">
-                            <div className="row-cols-1 row-cols-sm-2 row-cols-lg-3 g-4">
-                                {
-                                    movies.map(movie => (
-                                        <div key={movie.id} className="col">
-                                            <div className="card">
-                                                <img src={`http://localhost:3000/image/${movie.image}`} alt="" className="card-img-top" />
-                                                <div className="card-body">
-                                                    <h3>{movie.title}</h3>
-                                                    <p>{movie.abstract}</p>
-                                                </div>
+
+                        <div className=" row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-4">
+                            {
+                                movies.map(movie => (
+                                    <div key={movie.id} className="col">
+                                        <div className="card" style={{ width: '18rem' }}>
+                                            <img src={`http://localhost:3000/image/${movie.image}`} alt="" className="card-img-top" />
+                                            <div className="card-body">
+                                                <h3>{movie.title}</h3>
+                                                <p>{movie.abstract}</p>
                                             </div>
                                         </div>
-                                    ))
-                                }
-                            </div>
+                                    </div>
+                                ))
+                            }
                         </div>
                     </div>
                 </section>
