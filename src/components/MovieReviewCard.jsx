@@ -1,5 +1,6 @@
-export default function MovieReviewCard({ review }) {
-    const { title, text, created_at, vote } = review;
+export default function MovieReviewCard({ review, movie }) {
+    const { text, created_at, vote } = review;
+    const { title } = movie;
 
     function printRating(vote) {
 

@@ -18,10 +18,24 @@ export default function SingleMovie() {
             {/* Jumbotron */}
             <div className="p-5 mb-4 bg-light rounded-3">
                 <div className="container-fluid py-5">
-                    <h1 className="display-5 fw-bold">{movie?.title}</h1>
-                    <p className="col-md-8 fs-4">
-                        {movie?.abstract}
-                    </p>
+
+                    <div className="row">
+                        <div className="col-8">
+                            <h1 className="display-5 fw-bold">{movie?.title}</h1>
+                            <p className="col-md-8 fs-4">
+                                {movie?.abstract}
+                            </p>
+                        </div>
+                        <div className="col-4">
+                            <img
+                                src={`http://localhost:3000/image/${movie.image}`}
+                                alt={movie.title}
+                                className="img-fluid rounded-start"
+                                style={{ maxWidth: '100%', height: '200px' }}
+                            />
+                        </div>
+                    </div>
+
                 </div>
             </div>
             <div className="container">
