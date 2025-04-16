@@ -1,5 +1,5 @@
 export default function MovieReviewCard({ review, movie }) {
-    const { text, created_at, vote } = review;
+    const { text, created_at, vote, name } = review;
     const { title } = movie;
 
     function printRating(vote) {
@@ -27,7 +27,11 @@ export default function MovieReviewCard({ review, movie }) {
                     <p>{text}</p>
                 </div>
 
-                <div className="card-footer">
+                <div className="card-footer d-flex justify-content-between align-items-center">
+                    <div className="author">
+                        <i className="bi bi-person-circle"></i>
+                        <span className="ms-2">{name}</span>
+                    </div>
                     {created_at}
                 </div>
             </div>

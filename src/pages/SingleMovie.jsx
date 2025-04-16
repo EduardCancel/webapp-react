@@ -27,21 +27,93 @@ export default function SingleMovie() {
                             </p>
                         </div>
                         <div className="col-4">
-                            <img
-                                src={`http://localhost:3000/image/${movie.image}`}
-                                alt={movie.title}
-                                className="img-fluid rounded-start"
-                                style={{ maxWidth: '100%', height: '200px' }}
-                            />
+                            {movie.image ? (
+                                <img
+
+                                    src={`http://localhost:3000/image/${movie.image}`}
+                                    alt={movie.title}
+                                    className="img-fluid rounded-start"
+                                    style={{ maxWidth: '100%', height: '200px' }}
+                                />
+                            ) : (
+                                <img
+                                    src="https://placehold.co/600x400"
+                                    alt="Placeholder"
+                                    className="img-fluid rounded-start"
+                                    style={{ maxWidth: '100%', height: '200px' }}
+                                />
+                            )}
+
                         </div>
                     </div>
 
                 </div>
             </div>
+
             <div className="container">
+
+                <div className="add-review">
+                    <h3 className="mb-3">Add your Review</h3>
+
+                    <form action="post" method="post">
+
+                        <div className="mb-3">
+                            <label htmlFor="username" className="form-label">Username</label>
+                            <input
+                                type="text"
+                                className="form-control"
+                                name="username"
+                                id="username"
+                                aria-describedby="helpId"
+                                placeholder="Anonymous"
+                            />
+                        </div>
+                        <div className="mb-3">
+                            <div className="mb-3">
+                                <label htmlFor="vote" className="form-label">Vote</label>
+                                <input
+                                    type="number"
+                                    className="form-control"
+                                    name="vote"
+                                    id="vote"
+                                    aria-describedby="helpId"
+                                    min={1}
+                                    max={5}
+                                    placeholder="Write your vote here..."
+                                />
+                            </div>
+                        </div>
+
+                        <div className="mb-3">
+                            <label htmlFor="summary" className="form-label">Summary</label>
+                            <input
+                                type="text"
+                                className="form-control"
+                                name="summary"
+                                id="summary"
+                                aria-describedby="helpId"
+                                placeholder="Write your summary here..."
+                            />
+                        </div>
+                        <div className="mb-3">
+                            <label htmlFor="review" className="form-label">Review</label>
+                            <textarea
+                                name="review"
+                                className="form-control"
+                                id="review"
+                                rows="3"
+                                placeholder="Write your review here..."
+                            ></textarea>
+                        </div>
+                        <button type="submit" className="btn btn-primary">Submit Review</button>
+                    </form>
+                </div>
+
+                <hr />
+
+                <h2>Reviews</h2>
                 {movie?.reviews && movie.reviews.length > 0 ? (
                     <div>
-                        <h2>Reviews</h2>
                         {movie.reviews.map((review, index) => (
                             < MovieReviewCard key={index} movie={movie} review={review} />
                         ))}
@@ -50,7 +122,6 @@ export default function SingleMovie() {
                     <p>No reviews found</p>
                 )}
             </div>
-
         </>
     );
 }

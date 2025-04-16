@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { NavLink } from "react-router-dom";
+import MovieCard from "../components/MovieCard";
 
 export default function HomePage() {
     const [movies, setMovies] = useState([]);
@@ -29,22 +29,7 @@ export default function HomePage() {
                         <div className="container">
                             <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
                                 {movies.map(movie => (
-                                    <div key={movie.id} className="col">
-                                        <div className="card h-100 shadow-sm" style={{ maxWidth: '100%', fontSize: '0.9rem' }}>
-                                            <NavLink to={`/movies/${movie.id}`} className="text-decoration-none text-dark">
-                                                <img
-                                                    src={`http://localhost:3000/image/${movie.image}`}
-                                                    alt={movie.title}
-                                                    className="card-img-top"
-                                                    style={{ height: '300px', objectFit: 'cover' }}
-                                                />
-                                            </NavLink>
-                                            <div className="card-body p-2">
-                                                <h5 className="card-title mb-2">{movie.title}</h5>
-                                                <p className="card-text">{movie.abstract}</p>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    < MovieCard key={movie.id} movie={movie} />
                                 ))}
                             </div>
                         </div>
