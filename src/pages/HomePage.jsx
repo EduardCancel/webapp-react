@@ -13,7 +13,7 @@ export default function HomePage() {
 
     return (
         <>
-            <div className="p-5 mb-4 bg-dark text-light shadow-sm">
+            <div className="p-5 mb-4 bg-light text-dark shadow-sm">
                 <div className="container">
                     <h1 className="display-5 fw-bold">Welcome to Movie Reviews</h1>
                     <p className="lead">

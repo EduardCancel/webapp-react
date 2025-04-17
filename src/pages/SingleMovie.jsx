@@ -18,7 +18,7 @@ export default function SingleMovie() {
     return (
         <>
             {/* Jumbotron */}
-            <div className="p-5 mb-4 bg-light">
+            <div className="p-5 mb-4" style={{ backgroundColor: 'white' }}>
                 <div className="container-fluid py-5">
                     <div className="row">
                         <div className="col-8">
