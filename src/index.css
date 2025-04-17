@@ -10,3 +10,36 @@
 
     }
 }
+
+.icon {
+    width: 24px;
+    height: 24px;
+    stroke-width: 2;
+    transition: transform 0.2s ease;
+}
+
+.icon-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+
+.icon-container:hover .icon {
+    transform: scale(1.1);
+}
+
+.register-icon {
+    stroke: #22c55e;
+    /* verde */
+}
+
+.login-icon {
+    stroke: #3b82f6;
+    /* blu */
+}
+
+.home-icon {
+    stroke: #f59e0b;
+    /* arancione */
+}
