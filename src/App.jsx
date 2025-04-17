@@ -5,8 +5,11 @@ import SingleMovie from "./pages/SingleMovie"
 import NotFound from "./pages/NotFound"
 
 
+
 export default function App() {
+
   return (
+
     <BrowserRouter>
       <Routes>
         <Route Component={DefaultLayout}>
@@ -16,5 +19,6 @@ export default function App() {
         </Route>
       </Routes>
     </BrowserRouter>
+
   )
 }

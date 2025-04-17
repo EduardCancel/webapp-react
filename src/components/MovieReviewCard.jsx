@@ -30,7 +30,7 @@ export default function MovieReviewCard({ review, movie }) {
                         <i className="bi bi-person-circle"></i>
                         <span className="ms-2">{name}</span>
                     </div>
-                    <small className="text-muted">{created_at}</small>
+                    <small className="text-muted">{new Date(created_at).toLocaleDateString()}</small>
                 </div>
             </div>
         </>
