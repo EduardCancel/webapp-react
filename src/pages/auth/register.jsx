@@ -1,8 +1,10 @@
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { GlobalContext } from "../../context/GlobalContext";
 
 export default function Register() {
     const registration = "http://localhost:3000/register";
+    const { startLoading, stopLoading } = useContext(GlobalContext);
 
     const [formData, setFormData] = useState({
         username: "",
@@ -22,6 +24,7 @@ export default function Register() {
         e.preventDefault();
         const validationErrors = validateForm();
         if (Object.keys(validationErrors).length === 0) {
+            startLoading();
             fetch(registration, {
                 method: "POST",
                 headers: {
@@ -39,12 +42,12 @@ export default function Register() {
                 })
                 .then((data) => {
                     console.log("Registration successful:", data);
-                    // Handle successful registration (e.g., redirect to login page)
                 })
                 .catch((error) => {
                     console.error("Error:", error.message);
                     setErrors({ apiError: error.message });
-                });
+                })
+                .finally(() => stopLoading());
         } else {
             setErrors(validationErrors);
         }

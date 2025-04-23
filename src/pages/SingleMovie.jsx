@@ -1,19 +1,22 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { useParams } from "react-router-dom";
+import { GlobalContext } from "../context/GlobalContext";
 import MovieReviewCard from "../components/MovieReviewCard";
 import MovieReviewForm from "../components/reviews/MovieReviewForm";
 
 export default function SingleMovie() {
     const { id } = useParams();
     const [movie, setMovie] = useState({});
+    const { startLoading, stopLoading } = useContext(GlobalContext);
 
-    // Fetch movie details
     useEffect(() => {
+        startLoading();
         fetch(`http://localhost:3000/api/v1/movies/${id}`)
             .then((response) => response.json())
             .then((data) => setMovie(data))
-            .catch((error) => console.error('Error fetching movie details:', error));
-    }, [id]);
+            .catch((error) => console.error('Error fetching movie details:', error))
+            .finally(() => stopLoading());
+    }, [id, startLoading, stopLoading]);
 
     return (
         <>

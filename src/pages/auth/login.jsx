@@ -1,9 +1,9 @@
-
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { GlobalContext } from "../../context/GlobalContext";
 
 export default function Login() {
-
+    const { startLoading, stopLoading } = useContext(GlobalContext);
 
     const [formData, setFormData] = useState({
         username: "",
@@ -23,8 +23,12 @@ export default function Login() {
         e.preventDefault();
         const validationErrors = validateForm();
         if (Object.keys(validationErrors).length === 0) {
-            console.log("Form submitted:", formData);
-            // Add API call or further processing here
+            startLoading();
+            // Simulate API call
+            setTimeout(() => {
+                console.log("Form submitted:", formData);
+                stopLoading();
+            }, 1000);
         } else {
             setErrors(validationErrors);
         }
@@ -77,8 +81,7 @@ export default function Login() {
                                 </div>
                                 <button type="submit" className="btn btn-primary w-100">Login</button>
                                 <div className="mt-3 text-center">
-                                    Dont' have an account ? < Link to="/register" className="text-decoration-none">Register</Link>
-
+                                    Dont' have an account ? <Link to="/register" className="text-decoration-none">Register</Link>
                                 </div>
                             </form>
                         </div>

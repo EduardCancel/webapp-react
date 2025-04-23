@@ -1,15 +1,19 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
+import { GlobalContext } from "../context/GlobalContext";
 import MovieCard from "../components/MovieCard";
 
 export default function HomePage() {
     const [movies, setMovies] = useState([]);
+    const { startLoading, stopLoading } = useContext(GlobalContext);
 
     useEffect(() => {
+        startLoading();
         fetch('http://localhost:3000/api/v1/movies')
             .then(response => response.json())
             .then(data => setMovies(data))
-            .catch(error => console.error('Error fetching movies:', error));
-    }, []);
+            .catch(error => console.error('Error fetching movies:', error))
+            .finally(() => stopLoading());
+    }, [startLoading, stopLoading]);
 
     return (
         <>
